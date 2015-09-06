@@ -1,0 +1,10 @@
+- name: Postmap SASL
+  command: postmap /etc/postfix/sasl_passwd
+  notify: Reload postfix
+
+- name: Restart postfix
+  service: name=postfix state=restarted
+
+- name: Reload postfix
+  service: name=postfix state=reloaded
+

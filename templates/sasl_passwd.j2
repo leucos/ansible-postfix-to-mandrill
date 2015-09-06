@@ -1,0 +1,12 @@
+####################################
+#                                  #
+#         Ansible Managed          #
+# ansible-postfix-to-mandrill role #
+#                                  #
+####################################
+
+{% if postfix_to_mandrill_use_submission %}
+[{{ postfix_to_mandrill_relayhost }}]:submission {{ postfix_to_mandrill_username }}:{{ postfix_to_mandrill_password }}
+{% else %}
+[{{ postfix_to_mandrill_relayhost }}] {{ postfix_to_mandrill_username }}:{{ postfix_to_mandrill_password }}
+{% endif %}

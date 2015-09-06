@@ -1,0 +1,6 @@
+- name: Checking that required variables are set
+  fail: msg="{{ item }} is not defined"
+  when: not {{ item }}
+  with_items:
+    - postfix_to_mandrill_password
+    - postfix_to_mandrill_username

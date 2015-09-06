@@ -1,0 +1,2 @@
+- include: check_vars.yml  tags=postfix-to-mandrill,check
+- include: postfix-to-mandrill.yml tags=postfix-to-mandrill

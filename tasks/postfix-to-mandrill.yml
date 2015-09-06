@@ -1,0 +1,21 @@
+- name: Installs postfix and mailutils
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - postfix
+    - mailutils
+
+- name: Adds main config
+  template:
+    src: main.cf.j2
+    dest: /etc/postfix/main.cf
+    mode: 0660
+  notify: Restart postfix
+
+- name: Adds SASL config
+  template:
+    src: sasl_passwd.j2
+    dest: /etc/postfix/sasl_passwd
+    mode: 0600
+    owner: root
+    group: root
+  notify: Postmap SASL
