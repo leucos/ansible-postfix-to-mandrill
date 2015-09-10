@@ -42,6 +42,8 @@ recipient_delimiter = +
 inet_interfaces = all
 inet_protocols = all
 
+smtp_generic_maps = hash:/etc/postfix/generic
+
 smtp_sasl_auth_enable = yes
 smtp_tls_security_level = encrypt
 smtp_sasl_tls_security_options = noanonymous

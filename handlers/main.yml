@@ -2,6 +2,10 @@
   command: postmap /etc/postfix/sasl_passwd
   notify: Reload postfix
 
+- name: Postmap SMTP generic map
+  command: postmap /etc/postfix/generic
+  notify: Reload postfix
+
 - name: Restart postfix
   service: name=postfix state=restarted
 

@@ -1,0 +1,8 @@
+####################################
+#                                  #
+#         Ansible Managed          #
+# ansible-postfix-to-mandrill role #
+#                                  #
+####################################
+
+/^From:/ PREPEND X-MC-Subaccount: {{ postfix_to_mandrill_subaccount }}

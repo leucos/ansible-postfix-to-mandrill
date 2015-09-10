@@ -1,3 +1,4 @@
+postfix_to_mandrill_default_sender: "root@{{ inventory_hostname }}"
 postfix_to_mandrill_password: false
 postfix_to_mandrill_use_submission: true
 postfix_to_mandrill_username: false
