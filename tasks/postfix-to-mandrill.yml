@@ -4,15 +4,6 @@
     - postfix
     - mailutils
 
-- name: Pushes master.cf
-  template:
-    src: master.cf.j2
-    dest: /etc/postfix/master.cf
-    mode: 0600
-    owner: root
-    group: root
-  notify: Restart postfix
-
 - name: Adds main config
   template:
     src: main.cf.j2
@@ -29,24 +20,11 @@
     group: root
   notify: Postmap SASL
 
-
-- name: Adds generic maps
+- name: Pushes master.cf
   template:
-    src: generic.j2
-    dest: /etc/postfix/generic
+    src: master.cf.j2
+    dest: /etc/postfix/master.cf
     mode: 0600
     owner: root
     group: root
-  notify: Postmap SMTP generic map
-
-
-
-- name: Adds mandrill headers
-  template:
-    src: mandrill_headers.j2
-    dest: /etc/postfix/mandrill_headers
-    mode: 0600
-    owner: root
-    group: root
-  when: postfix_to_mandrill_subaccount is defined
   notify: Restart postfix

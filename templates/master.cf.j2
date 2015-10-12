@@ -57,7 +57,7 @@ flush     unix  n       -       -       1000?   0       flush
 proxymap  unix  -       -       n       -       -       proxymap
 proxywrite unix -       -       n       -       1       proxymap
 smtp      unix  -       -       -       -       -       smtp
-{% if postfix_to_mandrill_subaccount is defined %}
+{% if postfix_to_mandrill_subaccount is defined and postfix_to_mandrill_local_only %}
         -o smtp_header_checks=regexp:/etc/postfix/mandrill_headers
 {% endif %}
 relay     unix  -       -       -       -       -       smtp

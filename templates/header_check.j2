@@ -4,8 +4,7 @@
 # ansible-postfix-to-mandrill role #
 #                                  #
 ####################################
-{% if postfix_to_mandrill_local_only %}
-@{{ inventory_hostname }} {{ postfix_to_mandrill_default_sender }}
-{% else %}
-/.+/ {{ postfix_to_mandrill_default_sender }}
+/From:.*/ REPLACE From: {{ postfix_to_mandrill_default_sender }}
+{% if postfix_to_mandrill_subaccount is defined %}
+/^Message-Id:/ PREPEND X-MC-Subaccount: {{ postfix_to_mandrill_subaccount }}
 {% endif %}
