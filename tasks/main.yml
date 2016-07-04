@@ -1,8 +1,8 @@
-- include: check_vars.yml  tags=postfix-to-mandrill,check
+- include: check_vars.yml tags=postfix-to-mandrill,check
 - include: postfix-to-mandrill.yml tags=postfix-to-mandrill
 
-- include: postfix_to_mandrill_local_only.yml
+- include: postfix_to_mandrill_local_only.yml tags=postfix-to-mandrill,check
   when: postfix_to_mandrill_local_only
 
-- include: postfix_to_mandrill_relay.yml
+- include: postfix_to_mandrill_relay.yml tags=postfix-to-mandrill,check
   when: not postfix_to_mandrill_local_only
