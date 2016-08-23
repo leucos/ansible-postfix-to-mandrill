@@ -8,15 +8,17 @@
   template:
     src: main.cf.j2
     dest: /etc/postfix/main.cf
-    mode: 0660
+    owner: postfix
+    group: root
+    mode: 0640
   notify: Restart postfix
 
 - name: Adds SASL config
   template:
     src: sasl_passwd.j2
     dest: /etc/postfix/sasl_passwd
-    mode: 0600
-    owner: root
+    mode: 0640
+    owner: postfix
     group: root
   notify: Postmap SASL
 
@@ -24,7 +26,7 @@
   template:
     src: master.cf.j2
     dest: /etc/postfix/master.cf
-    mode: 0600
-    owner: root
+    mode: 0640
+    owner: postix
     group: root
   notify: Restart postfix

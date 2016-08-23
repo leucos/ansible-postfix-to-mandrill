@@ -2,8 +2,8 @@
   template:
     src: generic.j2
     dest: /etc/postfix/generic
-    mode: 0600
-    owner: root
+    mode: 0640
+    owner: postfix
     group: root
   notify: Postmap SMTP generic map
 
@@ -11,7 +11,7 @@
   template:
     src: header_check.j2
     dest: /etc/postfix/header_check
-    mode: 0600
-    owner: root
+    mode: 0640
+    owner: postfix
     group: root
   notify: Restart postfix
