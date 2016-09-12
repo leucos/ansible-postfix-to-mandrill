@@ -6,3 +6,4 @@
 
 - include: postfix_to_mandrill_relay.yml tags=postfix-to-mandrill,check
   when: not postfix_to_mandrill_local_only
+

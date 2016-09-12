@@ -4,13 +4,21 @@
     - postfix
     - mailutils
 
+- name: Chown /etc/postfix
+  file:
+    path: /etc/postfix
+    owner: postfix
+    group: root
+    mode: 0775
+    state: directory
+
 - name: Adds main config
   template:
     src: main.cf.j2
     dest: /etc/postfix/main.cf
     owner: postfix
     group: root
-    mode: 0640
+    mode: 0664
   notify: Restart postfix
 
 - name: Adds SASL config

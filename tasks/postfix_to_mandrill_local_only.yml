@@ -3,7 +3,7 @@
   template:
     src: generic.j2
     dest: /etc/postfix/generic
-    mode: 0640
+    mode: 0660
     owner: postfix
     group: root
   notify: Postmap SMTP generic map
@@ -12,7 +12,7 @@
   template:
     src: mandrill_headers.j2
     dest: /etc/postfix/mandrill_headers
-    mode: 0640
+    mode: 0660
     owner: postfix
     group: root
   when: postfix_to_mandrill_subaccount is defined
