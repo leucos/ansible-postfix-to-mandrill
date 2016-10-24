@@ -38,3 +38,11 @@
     owner: postfix
     group: root
   notify: Restart postfix
+
+- name: Fixes /etc/postfix/sasl_passwd.db perms if needed
+  file:
+    path: /etc/postfix/sasl_passwd.db
+    owner: postfix
+    group: root
+    mode: 0660
+
