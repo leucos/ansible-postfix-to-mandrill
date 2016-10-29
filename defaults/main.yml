@@ -1,4 +1,5 @@
 postfix_to_mandrill_default_sender: "root@{{ inventory_hostname }}"
+postfix_to_mandrill_default_receiver: "root@{{ inventory_hostname }}"
 
 # Do we send only local emails to mandrill or do we relay too ?
 postfix_to_mandrill_local_only: true

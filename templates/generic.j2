@@ -5,7 +5,7 @@
 #                                  #
 ####################################
 {% if postfix_to_mandrill_local_only %}
-@{{ inventory_hostname }} {{ postfix_to_mandrill_default_sender }}
+@{{ inventory_hostname }} {{ postfix_to_mandrill_default_receiver }}
 {% else %}
-/.+/ {{ postfix_to_mandrill_default_sender }}
+/.+/ {{ postfix_to_mandrill_default_receiver }}
 {% endif %}
